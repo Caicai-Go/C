@@ -1,0 +1,46 @@
+
+//有一个字符串，包含N个字符，将此字符串中第m个字符开始的全部字符复制到另一个字符串
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//复制第m个开始的全部字符
+char* my_strcpy_m(char * arr2,const char * arr1,int m ,int  len)
+{
+	int i = 0;
+	char tmp = 0;
+	while (arr1[m-1] != '\0')
+	{
+		arr2[i]=arr1[m-1];
+		m++;
+		i++;
+	}
+	arr2[i] = '\0';
+	return arr2;
+}
+int main() {
+	char* arr1 = (char*)malloc(100 * sizeof(char));
+	if (arr1 == NULL)
+	{
+		printf("内存分配失败\n");
+		return 1;
+	}
+	char* arr2 = (char*)malloc(100 * sizeof(char));
+	if (arr2 == NULL)
+	{
+		printf("内存分配失败\n");
+		return 1;
+	}
+	int m = 0;
+	printf("输入字符串:");
+	gets(arr1);
+	printf("输入从第几个字符开始复制:");
+	scanf("%d", &m);
+	//求字符串长度
+	int len = strlen(arr1);
+	//复制第m个开始的全部字符
+	char* pa = my_strcpy_m(arr2, arr1,m, len);
+	printf("%s\n", arr2);
+	free(arr1);
+	free(arr2);
+	return 0;
+}
