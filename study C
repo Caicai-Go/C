@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+//求字符串长度
+int my_strlen(const char* arr)
+{
+	int i = 0;
+	while (arr[i])
+	{
+		i++;
+	}
+	return i;
+}
+int main() {
+	char* arr = (char*)malloc(100 * sizeof(char));
+	if (arr == NULL) {
+		printf("内存分配失败\n");
+		return 1;
+	}
+	gets(arr);
+	//求字符串长度
+	int ret =my_strlen(arr);
+	printf("%d\n", ret);
+	free(arr);
+	return 0;
+}
